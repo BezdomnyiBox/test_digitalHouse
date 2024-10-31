@@ -4,6 +4,9 @@ namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Product;
+use App\Models\Characteristic;
+use App\Models\Review;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,5 +21,13 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
+        Product::factory(20)->create()->each(function ($product) {
+            $product->characteristics()->createMany(
+                Characteristic::factory(3)->make()->toArray()
+            );
+            $product->reviews()->createMany(
+                Review::factory(2)->make()->toArray()
+            );
+        });
     }
 }
