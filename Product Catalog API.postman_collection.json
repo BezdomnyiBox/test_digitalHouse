@@ -1,0 +1,307 @@
+{
+	"info": {
+		"_postman_id": "3b355335-9234-435a-ac4e-1db6690806ac",
+		"name": "Product Catalog API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39274913"
+	},
+	"item": [
+		{
+			"name": "Product Catalog",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/catalog",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"catalog"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1",
+							"description": "номер страницы (например, 1)",
+							"disabled": true
+						},
+						{
+							"key": "price_min",
+							"value": "60",
+							"description": "минимальная цена (например, 50)",
+							"disabled": true
+						},
+						{
+							"key": "price_max",
+							"value": null,
+							"description": "максимальная цена (например, 500)",
+							"disabled": true
+						},
+						{
+							"key": "characteristics[key]",
+							"value": null,
+							"description": "фильтрация по характеристикам",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Pagination",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/catalog?page=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"catalog"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "2",
+									"description": "номер страницы (например, 1)"
+								},
+								{
+									"key": "price_min",
+									"value": "60",
+									"description": "минимальная цена (например, 50)",
+									"disabled": true
+								},
+								{
+									"key": "price_max",
+									"value": null,
+									"description": "максимальная цена (например, 500)",
+									"disabled": true
+								},
+								{
+									"key": "characteristics[key]",
+									"value": null,
+									"description": "фильтрация по характеристикам",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Filter price",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/catalog?price_min=60&price_max=400",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"catalog"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "номер страницы (например, 1)",
+									"disabled": true
+								},
+								{
+									"key": "price_min",
+									"value": "60",
+									"description": "минимальная цена (например, 50)"
+								},
+								{
+									"key": "price_max",
+									"value": "400",
+									"description": "максимальная цена (например, 500)"
+								},
+								{
+									"key": "characteristics[key]",
+									"value": null,
+									"description": "фильтрация по характеристикам",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				},
+				{
+					"name": "Filter characteristics",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/catalog?characteristics[facilis]=numquam",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"catalog"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "номер страницы (например, 1)",
+									"disabled": true
+								},
+								{
+									"key": "price_min",
+									"value": "60",
+									"description": "минимальная цена (например, 50)",
+									"disabled": true
+								},
+								{
+									"key": "price_max",
+									"value": null,
+									"description": "максимальная цена (например, 500)",
+									"disabled": true
+								},
+								{
+									"key": "characteristics[facilis]",
+									"value": "numquam",
+									"description": "фильтрация по характеристикам"
+								}
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "Product Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/products/{{product_id}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"{{product_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add review",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/products/{{product_id}}/reviews",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"products",
+						"{{product_id}}",
+						"reviews"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Example",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"author\": \"Иван Иванов\",\r\n  \"content\": \"Отличный товар!\",\r\n  \"rating\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/products/{{product_id}}/reviews",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"products",
+								"{{product_id}}",
+								"reviews"
+							]
+						}
+					},
+					"_postman_previewlanguage": null,
+					"header": null,
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "product_id",
+			"value": "1",
+			"type": "string"
+		}
+	]
+}
